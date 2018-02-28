@@ -8,16 +8,19 @@ import {
   View
 } from 'react-native';
 
+import Home from './src/screens/Home'
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Ngan</Text>
+        <Home />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  
+  container: {
+    flex: 1
+  }
 });

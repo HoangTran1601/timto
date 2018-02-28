@@ -3,16 +3,28 @@ import { StyleSheet, Image, View, Text, Dimensions} from 'react-native';
 var {height, width} = Dimensions.get('window')
 export default class componentName extends Component {
   render() {
+    const { header, content, image } = this.props
+    let imageRequire
+    switch(image) {
+      case 'home-slider-1.png':
+        imageRequire = require('../assets/homeSlider/home-slider-1.png')
+        break;
+      case 'home-slider-2.png':
+        imageRequire = require('../assets/homeSlider/home-slider-2.png')
+        break;
+      default:
+        imageRequire = require('../assets/homeSlider/home-slider-3.png')
+  }
     return (
       <View style={styles.container}>
         <Image 
-          source={require('../../assets/homeSlider/home-slider-1.png')}
+          source={imageRequire}
           style={styles.image}
           resizeMode="stretch"
         />
         <View style={styles.infoArea}>
-          <Text style={styles.header}>Ready to explore?</Text>
-          <Text style={styles.content}>Let us  help you to find exciting things you will love, no matter where you go.</Text>
+          <Text style={styles.header}>{header}</Text>
+          <Text style={styles.content}>{content}</Text>
         </View>
       </View>
     );
@@ -21,19 +33,16 @@ export default class componentName extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+
   },
   image: {
     opacity: 0.5,
-    height: 470,
+    height: 350,
     width: width
   },
   infoArea: {
     paddingLeft: 40,
-    
-    backgroundColor: '#fff',
-    transform: [{translateY: -130}],
-    flex: 1
   },
   header: {
     fontSize: 30,
