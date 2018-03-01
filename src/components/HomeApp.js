@@ -14,7 +14,7 @@ export default class componentName extends Component {
         break;
       default:
         imageRequire = require('../assets/homeSlider/home-slider-3.png')
-  }
+    }
     return (
       <View style={styles.container}>
         <Image 

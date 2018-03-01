@@ -3,15 +3,38 @@ import { StyleSheet, View, Text, Image} from 'react-native';
 
 export default class OnBoarding extends Component {
   render() {
+    const {header, content, image} = this.props
+    let imageRequired
+
+    switch (image) {
+      case 'onboarding-1.png': 
+        imageRequired = require('../assets/onboarding/onboarding-1.png')
+        break
+      case 'onboarding-2.png': 
+        imageRequired = require('../assets/onboarding/onboarding-2.png')
+        break 
+      case 'onboarding-3.png': 
+        imageRequired = require('../assets/onboarding/onboarding-3.png')
+        break 
+      case 'onboarding-4.png': 
+        imageRequired = require('../assets/onboarding/onboarding-4.png')
+        break 
+      case 'onboarding-5.png': 
+        imageRequired = require('../assets/onboarding/onboarding-5.png')
+        break 
+      default: 
+        imageRequired = require('../assets/onboarding/onboarding-6.png')
+        break  
+    }
     return (
       <View style={styles.container}>
         <Image 
-          source={require('../../assets/onboarding/onboarding-3.png')}
+          source={imageRequired}
           style={styles.image}
         />
         <View style={styles.infoArea}>
-          <Text style={styles.header}>Explore</Text>
-          <Text style={styles.content}>Explore real estate in your neighboarhood or accross the world in real time</Text>
+          <Text style={styles.header}>{header}</Text>
+          <Text style={styles.content}>{content}</Text>
         </View>
       </View>
     );
