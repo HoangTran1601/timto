@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Image, View, Text, Dimensions} from 'react-native';
 
 import Font from '../common/Font'
+import Color from '../common/Color'
 import DEVICE_SCALE from '../common/Scale'
 
 export default class componentName extends Component {
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: Font.normalize(30),
-    color: '#404244',
+    color: Color.black,
     fontWeight: '300',
     width: DEVICE_SCALE.widthScale * 191 + 10
   },
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     fontSize: Font.normalize(15),
     fontWeight: '300',
     marginTop: DEVICE_SCALE.heightScale * 7.5,
-    color: '#404244',
+    color: Color.black,
     width: DEVICE_SCALE.widthScale * 191 + 10
   }
 });

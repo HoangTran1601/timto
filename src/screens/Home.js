@@ -10,6 +10,7 @@ import Swiper from 'react-native-swiper';
 
 import HomeApp from '../components/HomeApp'
 import Font from '../common/Font'
+import Color from '../common/Color'
 import DEVICE_SCALE from '../common/Scale'
 
 export default class componentName extends Component {
@@ -84,11 +85,11 @@ const styles = StyleSheet.create({
     width: DEVICE_SCALE.widthScale * 160
   },
   btnSignUp: {
-    backgroundColor: '#3B7CEC'
+    backgroundColor: Color.blue
   },
   btnLogIn: {
     backgroundColor: 'transparent',
-    borderColor: '#3B7CEC',
+    borderColor: Color.blue,
     borderWidth: 1,
   },
   text: {
@@ -96,10 +97,10 @@ const styles = StyleSheet.create({
     fontWeight: '300'
   },
   txtSignUp: {
-    color: '#fff'
+    color: Color.white
   },
   txtLogin: {
-    color: '#3B7CEC'
+    color: Color.blue
   },
   explore: {
     paddingVertical: DEVICE_SCALE.heightScale * 18.5,
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
   txtExplore: {
     fontSize: Font.normalize(12.5),
     fontWeight: '300',
-    color: '#3B7CEC',
+    color: Color.blue,
     textAlign: 'center'
   }
 });

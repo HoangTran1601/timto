@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet ,View, Text, Image} from 'react-native';
 
 import Font from '../common/Font'
+import Color from '../common/Color'
 import DEVICE_SCALE from '../common/Scale'
 
 export default class OnBoarding extends Component {
@@ -54,14 +55,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   header: {
-    color: '#3B7CEC',
+    color: Color.blue,
     fontSize: Font.normalize(22),
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: DEVICE_SCALE.heightScale * 10
   },
   content: {
-    color: '#5F5F5F',
+    color: Color.blackContent,
     fontSize: Font.normalize(18),
     fontFamily: 'Avenir',
     fontWeight: 'normal',

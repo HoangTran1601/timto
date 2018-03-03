@@ -11,6 +11,7 @@ import Swiper from 'react-native-swiper';
 
 import OnBoarding from '../components/OnBoarding'
 import Font from '../common/Font'
+import Color from '../common/Color'
 import DEVICE_SCALE from '../common/Scale'
 
 export default class componentName extends Component {
@@ -108,13 +109,13 @@ const styles = StyleSheet.create({
     borderRadius: 6.1,
     backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: '#E3E9F2' 
+    borderColor: Color.grayDot 
   },
   activeDotStyle: {
     width: DEVICE_SCALE.widthScale * 12.2,
     height: DEVICE_SCALE.heightScale * 12.2,
     borderRadius: 6.1,
-    backgroundColor: '#3B7CEC'
+    backgroundColor: Color.blue
   },
   buttonWrapperStyle: {
     alignItems: 'flex-end',
@@ -122,12 +123,12 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontSize: Font.normalize(14),
-    color: '#9DABC0',
+    color: Color.gray,
     fontWeight: '300',
     marginBottom: 17
   },
   paginationStyle: {
-    backgroundColor: '#fff',
+    backgroundColor: Color.white,
     paddingVertical: DEVICE_SCALE.heightScale * 28,
     position: 'absolute',
     bottom: 0,
