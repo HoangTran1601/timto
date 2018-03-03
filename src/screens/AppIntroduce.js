@@ -11,12 +11,7 @@ import Swiper from 'react-native-swiper';
 
 import OnBoarding from '../components/OnBoarding'
 import Font from '../common/Font'
-
-const {width, height} = Dimensions.get("window")
-const DEVICE_SCALE = {
-  width: width / 375,
-  height: height / 667
-}
+import DEVICE_SCALE from '../common/Scale'
 
 export default class componentName extends Component {
   constructor(props) {
@@ -108,22 +103,22 @@ const styles = StyleSheet.create({
     flex: 1
   },
   dotStyle: {
-    width: DEVICE_SCALE.width * 12.2,
-    height: DEVICE_SCALE.height * 12.2,
+    width: DEVICE_SCALE.widthScale * 12.2,
+    height: DEVICE_SCALE.heightScale * 12.2,
     borderRadius: 6.1,
     backgroundColor: 'transparent',
     borderWidth: 2,
     borderColor: '#E3E9F2' 
   },
   activeDotStyle: {
-    width: DEVICE_SCALE.width * 12.2,
-    height: DEVICE_SCALE.height * 12.2,
+    width: DEVICE_SCALE.widthScale * 12.2,
+    height: DEVICE_SCALE.heightScale * 12.2,
     borderRadius: 6.1,
     backgroundColor: '#3B7CEC'
   },
   buttonWrapperStyle: {
     alignItems: 'flex-end',
-    paddingHorizontal: DEVICE_SCALE.width * 16,
+    paddingHorizontal: DEVICE_SCALE.widthScale * 16,
   },
   btnText: {
     fontSize: Font.normalize(14),
@@ -133,7 +128,7 @@ const styles = StyleSheet.create({
   },
   paginationStyle: {
     backgroundColor: '#fff',
-    paddingVertical: DEVICE_SCALE.height * 28,
+    paddingVertical: DEVICE_SCALE.heightScale * 28,
     position: 'absolute',
     bottom: 0,
     shadowColor: 'rgba(0,0,0,15)',

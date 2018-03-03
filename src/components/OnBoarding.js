@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Dimensions ,View, Text, Image} from 'react-native';
+import { StyleSheet ,View, Text, Image} from 'react-native';
 
 import Font from '../common/Font'
-
-const {width, height} = Dimensions.get("window")
-const DEVICE_SCALE = {
-  height: height / 667,
-  width: width / 375
-} 
+import DEVICE_SCALE from '../common/Scale'
 
 export default class OnBoarding extends Component {
   render() {
@@ -52,10 +47,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: DEVICE_SCALE.height * 100 
+    paddingTop: DEVICE_SCALE.heightScale * 100 
   },
   infoArea: {
-    marginTop: DEVICE_SCALE.height * 86,
+    marginTop: DEVICE_SCALE.heightScale * 86,
     paddingHorizontal: 30,
   },
   header: {
@@ -63,7 +58,7 @@ const styles = StyleSheet.create({
     fontSize: Font.normalize(22),
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: DEVICE_SCALE.height * 10
+    marginBottom: DEVICE_SCALE.heightScale * 10
   },
   content: {
     color: '#5F5F5F',
@@ -73,8 +68,8 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   image: {
-    width: DEVICE_SCALE.width * 198,
-    height: DEVICE_SCALE.height * 202
+    width: DEVICE_SCALE.widthScale * 198,
+    height: DEVICE_SCALE.heightScale * 202
   }
 });
 
