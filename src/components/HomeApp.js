@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, Image, View, Text, Dimensions} from 'react-native';
-var {height, width} = Dimensions.get('window')
+
+import Font from '../common/Font'
+
+const {height, width} = Dimensions.get('window')
+const DEVICE_SCALE = {
+  width: width / 375,
+  height: height / 667
+}
+
 export default class componentName extends Component {
   render() {
     const { header, content, image } = this.props
@@ -38,23 +46,23 @@ const styles = StyleSheet.create({
   },
   image: {
     opacity: 0.5,
-    height: 350,
+    height: DEVICE_SCALE.height * 320,
     width: width
   },
   infoArea: {
-    paddingLeft: 40,
+    paddingLeft: DEVICE_SCALE.width * 40,
   },
   header: {
-    fontSize: 30,
+    fontSize: Font.normalize(30),
     color: '#404244',
     fontWeight: '300',
-    width: 191
+    width: DEVICE_SCALE.width * 191 + 10
   },
   content: {
-    fontSize: 15,
+    fontSize: Font.normalize(15),
     fontWeight: '300',
-    marginTop: 7.5,
+    marginTop: DEVICE_SCALE.height * 7.5,
     color: '#404244',
-    width: 191
+    width: DEVICE_SCALE.width * 191 + 10
   }
 });
