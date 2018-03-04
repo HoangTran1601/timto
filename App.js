@@ -10,11 +10,12 @@ import {
 
 import Home from './src/screens/Home'
 import AppIntroduce from './src/screens/AppIntroduce'
+import SignIn from './src/screens/SignIn'
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <AppIntroduce />
+        <SignIn />
       </View>
     );
   }
