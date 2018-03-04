@@ -5,7 +5,7 @@ import Font from '../common/Font'
 import Color from '../common/Color'
 import DEVICE_SCALE from '../common/Scale'
 
-export default class componentName extends Component {
+export default class HomeApp extends Component {
   render() {
     const { header, content, image } = this.props
     let imageRequire

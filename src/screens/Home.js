@@ -13,7 +13,7 @@ import Font from '../common/Font'
 import Color from '../common/Color'
 import DEVICE_SCALE from '../common/Scale'
 
-export default class componentName extends Component {
+export default class Home extends Component {
   render() {
     return (
         <View style={styles.wrapper}>

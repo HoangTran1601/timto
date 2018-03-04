@@ -10,7 +10,7 @@ import {
 import Scale from '../common/Scale'
 import Color from '../common/Color'
 import Font from '../common/Font'
-export default class SignIn extends Component {
+export default class SignUp extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -21,8 +21,8 @@ export default class SignIn extends Component {
         />
       
         <View style={styles.greeting}>
-          <Text style={styles.greetingText}>Hello again.</Text>
-          <Text style={styles.greetingText}>Welcome back.</Text>
+          <Text style={styles.greetingText}>Hello!</Text>
+          <Text style={styles.greetingText}>Sign up to get started.</Text>
         </View>
 
         <View style={styles.inputArea}>
@@ -31,27 +31,12 @@ export default class SignIn extends Component {
             placeholder="Your phone number"
             autoFocus={true}
           />
-          <TextInput
-            style={[styles.input, styles.inputPassword]}
-            placeholder="Password"
-            secureTextEntry={true}
-          />
         </View>
 
         <TouchableWithoutFeedback>
           <View style={styles.buttonArea}>
-            <View style={[styles.buttonContent, styles.buttonLogin]}>
-              <Text style={styles.buttonText}>Log in</Text>
-            </View>
-          </View>
-        </TouchableWithoutFeedback>
-
-        <Text style={styles.forgotPassword}>Forgot your password?</Text>
-
-        <TouchableWithoutFeedback>
-          <View style={[styles.buttonArea, styles.buttonSignUpArea]}>
             <View style={[styles.buttonContent, styles.buttonSignUp]}>
-              <Text style={styles.buttonTextSignUp}>Sign up</Text>
+              <Text style={styles.buttonText}>Log in</Text>
             </View>
           </View>
         </TouchableWithoutFeedback>
@@ -79,7 +64,7 @@ const styles = StyleSheet.create({
   },
   inputArea: {
     paddingHorizontal: Scale.widthScale * 31,
-    marginTop: Scale.heightScale * 24.5
+    marginTop: Scale.heightScale * 44
   },
   input: {
     paddingVertical: Scale.heightScale * 14,
@@ -88,22 +73,10 @@ const styles = StyleSheet.create({
     borderColor: Color.borderInput
   },
   inputNumber: {
-    borderBottomWidth: 0,
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
-  },
-  inputPassword: {
-    borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5,
+    borderRadius: 5
   },
   buttonArea: {
     paddingHorizontal: Scale.heightScale * 31,
-  },
-  buttonSignUpArea: {
-    position: 'absolute',
-    bottom: Scale.heightScale * 30,
-    left: 0,
-    right: 0
   },
   buttonContent: {
     alignItems: 'center',
@@ -111,24 +84,12 @@ const styles = StyleSheet.create({
     height: Scale.heightScale * 50,
     borderRadius: 5,
   },
-  buttonLogin: {
-    marginTop: Scale.heightScale * 30.5,
-    backgroundColor: Color.blue,
-  },
   buttonSignUp: {
-    borderWidth: 1,
-    borderColor: Color.blue
+    marginTop: Scale.heightScale * 51,
+    backgroundColor: Color.blue,
   },
   buttonText: {
     color: Color.white,
     fontSize: Font.normalize(17.5)
-  },
-  buttonTextSignUp: {
-    color: Color.blue
-  },
-  forgotPassword: {
-    marginTop: Scale.heightScale * 102,
-    color: Color.blue,
-    alignSelf: 'center',
   }
 });
