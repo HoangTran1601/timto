@@ -14,7 +14,12 @@ export default class SignUp extends Component {
   render() {
     return (
       <View style={styles.container}>
-        
+        <TouchableWithoutFeedback>
+          <Image 
+            source={require('../assets/IconClose.png')}
+            style={styles.iconClose}
+          />
+        </TouchableWithoutFeedback>
         <Image 
           source={require('../assets/logo.png')}
           style={styles.logo}
@@ -91,5 +96,12 @@ const styles = StyleSheet.create({
   buttonText: {
     color: Color.white,
     fontSize: Font.normalize(17.5)
+  },
+  iconClose: {
+    position: 'absolute',
+    top: Scale.heightScale * 35,
+    left: Scale.widthScale * 20,
+    height: Scale.heightScale * 17,
+    width: Scale.widthScale * 17
   }
 });

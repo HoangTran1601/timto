@@ -14,7 +14,10 @@ export default class SignIn extends Component {
   render() {
     return (
       <View style={styles.container}>
-        
+        <Image 
+          source={require('../assets/IconClose.png')}
+          style={styles.iconClose}
+        />
         <Image 
           source={require('../assets/logo.png')}
           style={styles.logo}
@@ -130,5 +133,12 @@ const styles = StyleSheet.create({
     marginTop: Scale.heightScale * 102,
     color: Color.blue,
     alignSelf: 'center',
+  },
+  iconClose: {
+    position: 'absolute',
+    top: Scale.heightScale * 35,
+    left: Scale.widthScale * 20,
+    height: Scale.heightScale * 17,
+    width: Scale.widthScale * 17
   }
 });
