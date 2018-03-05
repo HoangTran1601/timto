@@ -13,6 +13,7 @@ import AppIntroduce from './src/screens/AppIntroduce'
 import SignIn from './src/screens/SignIn'
 import SignUp from './src/screens/SignUp'
 import SignUpOTP from './src/screens/SignUpOTP'
+import UpdateProfile from './src/screens/UpdateProfile'
 export default class App extends Component<Props> {
   render() {
     return (

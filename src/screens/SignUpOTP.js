@@ -11,13 +11,13 @@ import {
 import Font from '../common/Font'
 import Color from '../common/Color'
 import Scale from '../common/Scale'
-export default class componentName extends Component {
+export default class SignUpOTP extends Component {
   render() {
     return (
       <View>
         <Image 
           source={require('../assets/IconBack.png')}
-          style={styles.iconClose}
+          style={styles.iconBack}
         />
         <View style={styles.OtpArea}>
           <TextInput style={styles.input}/>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   buttonTextResend: {
     color: Color.blue
   },
-  iconClose: {
+  iconBack: {
     position: 'absolute',
     top: Scale.heightScale * 35,
     left: Scale.widthScale * 20,
