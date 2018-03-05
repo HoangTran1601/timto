@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   input: {
     height: Scale.heightScale * 50,
     borderWidth: 1,
-    borderColor: Color.borderInput,
+    borderColor: Color.darkGray,
     borderRadius: 5,
     paddingLeft: Scale.widthScale * 17.5
   },
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   buttonUpdate: {
-    backgroundColor: Color.borderInput,
+    backgroundColor: Color.darkGray,
   },
   buttonText: {
     color: Color.white,

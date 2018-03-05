@@ -35,6 +35,7 @@ export default class SignUp extends Component {
             style={[styles.input, styles.inputNumber]}
             placeholder="Your phone number"
             autoFocus={true}
+            placeholderTextColor={Color.darkGray}
           />
         </View>
 
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     paddingVertical: Scale.heightScale * 14,
     paddingLeft: Scale.widthScale * 18,
     borderWidth: 1,
-    borderColor: Color.borderInput
+    borderColor: Color.darkGray
   },
   inputNumber: {
     borderRadius: 5

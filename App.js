@@ -14,11 +14,12 @@ import SignIn from './src/screens/SignIn'
 import SignUp from './src/screens/SignUp'
 import SignUpOTP from './src/screens/SignUpOTP'
 import UpdateProfile from './src/screens/UpdateProfile'
+import Search from './src/common/SearchBar'
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <SignUpOTP />
+        <SignIn/>
       </View>
     );
   }
