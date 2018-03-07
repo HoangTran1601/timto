@@ -46,6 +46,7 @@ export default class Category extends Component {
     return (
       <ScrollView 
         style={styles.container}
+        showsHorizontalScrollIndicator={false}
         horizontal={true}
       >
         {listItems}
@@ -56,7 +57,6 @@ export default class Category extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100
   },
   categoryItem: {
     marginHorizontal: 10,

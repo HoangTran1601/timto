@@ -5,7 +5,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  
 } from 'react-native';
 
 import Home from './src/screens/Home'
@@ -17,6 +18,8 @@ import UpdateProfile from './src/screens/UpdateProfile'
 import Search from './src/common/SearchBar'
 import Enable from './src/common/Enable'
 import Category from './src/components/Category/Category'
+import PostItem from './src/components/Post/PostItem'
+import NewsFeed from './src/screens/NewsFeed'
 export default class App extends Component<Props> {
   constructor(props) {
     super(props)
@@ -29,8 +32,10 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Category category={this.state.list}/>
+        {/* <Category category={this.state.list}/> */}
+        <NewsFeed />
       </View>
+      //https://i.ytimg.com/vi/2KpsrQGOMmI/maxresdefault.jpg
     );
   }
 }
@@ -38,5 +43,8 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  test: {
+    backgroundColor: '#F4F7F9'
   }
 });

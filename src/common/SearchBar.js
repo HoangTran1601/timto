@@ -40,8 +40,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     flexDirection: 'row',
     paddingVertical: Scale.heightScale * 9,
-    paddingLeft: Scale.widthScale * 15,
-    marginTop: 100
+    paddingLeft: Scale.widthScale * 15
   },
   icon: {
     width: Scale.widthScale * 17,
