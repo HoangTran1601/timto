@@ -36,6 +36,7 @@ export default class PostHeader extends Component {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'space-between',
+    flex: 1,
   },
   headerTitleArea: {
     flex: 1
@@ -67,6 +68,6 @@ const styles = StyleSheet.create({
     color: Color.darkGray
   },
   date: {
-    justifyContent: 'flex-end',
+    marginLeft: 'auto'
   }
 });

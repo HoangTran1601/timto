@@ -7,7 +7,9 @@ const NAMED_COLORS = {
   grayDot: 'rgba(227, 233, 242, 1)',
   darkGray: 'rgba(156, 159, 163, 1)',
   greeting: 'rgba(78, 78, 78, 1)',
-  searchBar: 'rgba(244, 247, 249, 100)'
+  searchBar: 'rgba(244, 247, 249, 100)',
+  borderColor: 'rgba(234, 236, 238, 100)',
+  call: 'rgba(83, 195, 117, 100)',
 }
 
 export default {

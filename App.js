@@ -20,6 +20,9 @@ import Enable from './src/common/Enable'
 import Category from './src/components/Category/Category'
 import PostItem from './src/components/Post/PostItem'
 import NewsFeed from './src/screens/NewsFeed'
+import Test from './src/components/Post/PostDetail/GeneralDetail'
+import PostDes from './src/components/Post/PostDetail/PostDescription'
+import PostDetail from './src/screens/PostDetail'
 export default class App extends Component<Props> {
   constructor(props) {
     super(props)
@@ -32,8 +35,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        {/* <Category category={this.state.list}/> */}
-        <NewsFeed />
+        <PostDetail/>
       </View>
       //https://i.ytimg.com/vi/2KpsrQGOMmI/maxresdefault.jpg
     );
