@@ -13,6 +13,7 @@ import Color from '../common/Color'
 import Scale from '../common/Scale'
 import Font from '../common/Font'
 
+import SectionHeader from '../components/Section/SectionHeader'
 import GeneralDetail from '../components/Post/PostDetail/GeneralDetail'
 import PostDescription from '../components/Post/PostDetail/PostDescription'
 import Comment from '../components/Comment/Comment'
@@ -23,10 +24,10 @@ export default class PostDetail extends Component {
         <ScrollView
           showsVerticalScrollIndicator={false}
         >
-          <View style={styles.sectionTitle}>
+          {/* <View style={styles.sectionTitle}>
             <Text style={styles.sectionTitleText}>Tin đăng</Text>
-          </View>
-
+          </View> */}
+          <SectionHeader title="Tin đăng"/>
           <View style={styles.generalDetailArea}>
             <GeneralDetail
               header="Vong deo tay cho quy chi e."
@@ -35,9 +36,10 @@ export default class PostDetail extends Component {
             />
           </View>
 
-          <View style={styles.sectionTitle}>
+          {/* <View style={styles.sectionTitle}>
             <Text style={styles.sectionTitleText}>Miêu tả</Text>
-          </View>
+          </View> */}
+          <SectionHeader title="Miêu tả"/>
 
           <View style={styles.postDescriptionArea}>
             <PostDescription 
@@ -47,10 +49,11 @@ export default class PostDetail extends Component {
             />
           </View>
 
-          <View style={styles.sectionTitle}>
+          {/* <View style={styles.sectionTitle}>
             <Text style={styles.sectionTitleText}>Bình luận</Text>
-          </View>
+          </View> */}
 
+          <SectionHeader title="Bình luận"/>
           <View style={styles.commentArea}>
             <Comment/>
             <Comment/>

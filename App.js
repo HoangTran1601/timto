@@ -23,6 +23,7 @@ import NewsFeed from './src/screens/NewsFeed'
 import Test from './src/components/Post/PostDetail/GeneralDetail'
 import PostDes from './src/components/Post/PostDetail/PostDescription'
 import PostDetail from './src/screens/PostDetail'
+import PostNews from './src/screens/PostNews'
 export default class App extends Component<Props> {
   constructor(props) {
     super(props)
@@ -35,7 +36,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <PostDetail/>
+        <PostNews/>
       </View>
       //https://i.ytimg.com/vi/2KpsrQGOMmI/maxresdefault.jpg
     );
