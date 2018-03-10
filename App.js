@@ -24,6 +24,8 @@ import Test from './src/components/Post/PostDetail/GeneralDetail'
 import PostDes from './src/components/Post/PostDetail/PostDescription'
 import PostDetail from './src/screens/PostDetail'
 import PostNews from './src/screens/PostNews'
+import Notification from './src/screens/Notification'
+import Tabbar from './src/router'
 export default class App extends Component<Props> {
   constructor(props) {
     super(props)
@@ -36,7 +38,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <PostNews/>
+        <Tabbar/>
       </View>
       //https://i.ytimg.com/vi/2KpsrQGOMmI/maxresdefault.jpg
     );
