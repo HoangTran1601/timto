@@ -52,7 +52,8 @@ export default class Notification extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 30
+    marginTop: 30,
+    backgroundColor: Color.white
   },
   notiItem: {
     paddingLeft: Scale.widthScale * 16,

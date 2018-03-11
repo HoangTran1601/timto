@@ -16,10 +16,15 @@ import PostImage from './PostImage'
 import PostHeader from './PostHeader'
 
 export default class PostItem extends Component {
+  _onPress () {
+    this.props.onPress
+    // alert("hi")
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.props.onPress}>
           <View style={styles.postItemHeader}>
             <View style={styles.postImage}>
               <PostImage 
@@ -49,7 +54,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 15,
     paddingVertical: 15,
-    marginTop: 15,
+    // marginTop: 15,
     marginHorizontal: 15,
     backgroundColor: Color.white
   },

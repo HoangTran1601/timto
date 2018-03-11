@@ -19,8 +19,10 @@ import PostDescription from '../components/Post/PostDetail/PostDescription'
 import Comment from '../components/Comment/Comment'
 export default class PostDetail extends Component {
   render() {
+    const { params } = this.props.navigation.state
+    const { header, owner, ownerImage, description} = params
     return (
-      <View>
+      <View style={styles.container}>
         <ScrollView
           showsVerticalScrollIndicator={false}
         >
@@ -30,9 +32,9 @@ export default class PostDetail extends Component {
           <SectionHeader title="Tin đăng"/>
           <View style={styles.generalDetailArea}>
             <GeneralDetail
-              header="Vong deo tay cho quy chi e."
-              owner="hoangnguyenvu"
-              ownerImage="https://i.ytimg.com/vi/2KpsrQGOMmI/maxresdefault.jpg"
+              header={header}
+              owner={owner}
+              ownerImage={ownerImage}
             />
           </View>
 
@@ -43,9 +45,7 @@ export default class PostDetail extends Component {
 
           <View style={styles.postDescriptionArea}>
             <PostDescription 
-              description="Vong deo tay cho quy chi e. Nhieu mau ma, dep, bat mat.
-              Dac biet, mot so kieu duoc design theo tinh chat phong thuy, rat phu hop cho nhung ban co tin nguong. Gia 10 usd/cai (Van chuyen: 10 usd/cai trong khu vuc San Jose.
-              Ky 4087504815.Vui long nhan tin, neu ban muon coi mau vi web co the ko coi duoc hinh"
+              description={description}
             />
           </View>
 
@@ -82,6 +82,9 @@ export default class PostDetail extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: Color.white
+  },
   sectionTitle: {
     backgroundColor: Color.searchBar,
     justifyContent: 'center',
