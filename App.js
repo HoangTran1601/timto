@@ -8,23 +8,8 @@ import {
   View,
   
 } from 'react-native';
-
-import Home from './src/screens/Home'
-import AppIntroduce from './src/screens/AppIntroduce'
-import SignIn from './src/screens/SignIn'
-import SignUp from './src/screens/SignUp'
-import SignUpOTP from './src/screens/SignUpOTP'
-import UpdateProfile from './src/screens/UpdateProfile'
-import Search from './src/common/SearchBar'
-import Enable from './src/common/Enable'
-import Category from './src/components/Category/Category'
-import PostItem from './src/components/Post/PostItem'
-import NewsFeed from './src/screens/NewsFeed'
-import Test from './src/components/Post/PostDetail/GeneralDetail'
-import PostDes from './src/components/Post/PostDetail/PostDescription'
-import PostDetail from './src/screens/PostDetail'
-import PostNews from './src/screens/PostNews'
-import Notification from './src/screens/Notification'
+import { Provider } from 'react-redux';
+import store from './src/store';
 import Tabbar from './src/router'
 export default class App extends Component<Props> {
   constructor(props) {
@@ -37,9 +22,11 @@ export default class App extends Component<Props> {
   
   render() {
     return (
-      <View style={styles.container}>
-        <Tabbar/>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <Tabbar/>
+        </View>
+      </Provider>
       //https://i.ytimg.com/vi/2KpsrQGOMmI/maxresdefault.jpg
     );
   }

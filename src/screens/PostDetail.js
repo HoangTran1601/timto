@@ -20,7 +20,7 @@ import Comment from '../components/Comment/Comment'
 export default class PostDetail extends Component {
   render() {
     const { params } = this.props.navigation.state
-    const { header, owner, ownerImage, description} = params
+    const { header, owner, ownerImage, description, locationName, createdAt, seenAmount, commentAmount} = params
     return (
       <View style={styles.container}>
         <ScrollView
@@ -35,6 +35,10 @@ export default class PostDetail extends Component {
               header={header}
               owner={owner}
               ownerImage={ownerImage}
+              locationName={locationName}
+              createdAt={createdAt}
+              commentAmount={commentAmount}
+              seenAmount={seenAmount}
             />
           </View>
 

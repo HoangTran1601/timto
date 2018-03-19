@@ -12,7 +12,7 @@ import Scale from '../../../common/Scale'
 
 export default class GeneralDetail extends Component {
   render() {
-    const { owner, ownerImage, header } = this.props
+    const { owner, ownerImage, header, commentAmount, seenAmount, locationName, createdAt } = this.props
     return (
       <View style={styles.container}>
         <Text style={styles.header}> {header} </Text>
@@ -43,8 +43,8 @@ export default class GeneralDetail extends Component {
             <View style={styles.infoContent}>
               <Text style={styles.infoHeader}>CREATED AT</Text>
               <View style={styles.row}>
-                <Text style={styles.infoTitle}>Mon Oct 16</Text>
-                <Text style={styles.infoReaction}>1 lượt xem, 4 bình luận</Text>
+                <Text style={styles.infoTitle}>{createdAt}</Text>
+                <Text style={styles.infoReaction}>{seenAmount} lượt xem, {commentAmount} bình luận</Text>
               </View>
             </View>
           </View>
@@ -63,7 +63,7 @@ export default class GeneralDetail extends Component {
             </View>
             <View style={styles.infoContent}>
               <Text style={styles.infoHeader}>LOCATION</Text>
-              <Text style={styles.infoTitle}>Penshurts NSW 2222, San Jose</Text>
+              <Text style={styles.infoTitle}>{locationName}</Text>
             </View>
           </View>
 

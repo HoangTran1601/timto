@@ -5,6 +5,8 @@ import {
   Text,
   ScrollView
 } from 'react-native';
+import { connect } from 'react-redux';
+import { fetchPost } from '../actions/PostListAction'
 
 import SearchBar from '../common/SearchBar'
 import PostItem from '../components/Post/PostItem'
@@ -14,7 +16,7 @@ import Color from '../common/Color'
 import Scale from '../common/Scale'
 import Font from '../common/Font'
 
-export default class NewsFeed extends Component {
+class NewsFeed extends Component {
 
   constructor(props) {
     super(props)
@@ -24,16 +26,39 @@ export default class NewsFeed extends Component {
     };
   };
 
-  _onPress () {
+  componentWillMount () {
+    this.props.fetchPost()
+  }
+
+  _onPress (post) {
     this.props.navigation.navigate('Post_Detail', {
-      header: 'Vong deo tay cho quy chi e.',
-      owner: 'hoangnguyenvu',
+      header: post.title,
+      owner: post.author.username,
       ownerImage: 'https://i.ytimg.com/vi/2KpsrQGOMmI/maxresdefault.jpg',
-      description: `Vong deo tay cho quy chi e. Nhieu mau ma, dep, bat mat. Dac biet, mot so kieu duoc design theo tinh chat phong thuy, rat phu hop cho nhung ban co tin nguong. Gia 10 usd/cai (Van chuyen: 10 usd/cai trong khu vuc San Jose. Ky 4087504815.Vui long nhan tin, neu ban muon coi mau vi web co the ko coi duoc hinh`
+      description: `Vong deo tay cho quy chi e. Nhieu mau ma, dep, bat mat. Dac biet, mot so kieu duoc design theo tinh chat phong thuy, rat phu hop cho nhung ban co tin nguong. Gia 10 usd/cai (Van chuyen: 10 usd/cai trong khu vuc San Jose. Ky 4087504815.Vui long nhan tin, neu ban muon coi mau vi web co the ko coi duoc hinh`,
+      locationName: post.location.address,
+      seenAmount: post.views,
+      commentAmount: post.comment_count,
+      createdAt: post.created_at.split('T')[0]
     })
   }
 
   render() {
+    const posts = this.props.posts.map(post => {
+      console.log('hi')
+      return (
+        <View key={post.id}>
+          <PostItem 
+            headerTitle={post.title}
+            locationName={post.location.address}
+            seenAmount={post.views}
+            commentAmount={post.comment_count}
+            content={post.content}
+            onPress={this._onPress.bind(this, post)}  
+          />
+        </View>
+    )}
+  )
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -50,21 +75,8 @@ export default class NewsFeed extends Component {
           style={styles.postList}
           showsVerticalScrollIndicator={false}
         >
-          <View>
-            <PostItem onPress={this._onPress.bind(this)}/>
-          </View>
-          <View style={styles.postItem}>
-            <PostItem onPress={this._onPress.bind(this)}/>
-          </View>
-          <View style={styles.postItem}>
-            <PostItem onPress={this._onPress.bind(this)}/>
-          </View>
-          <View style={styles.postItem}>
-            <PostItem onPress={this._onPress.bind(this)}/>
-          </View>
-          <View style={styles.postItem}>
-            <PostItem onPress={this._onPress.bind(this)}/>
-          </View>
+          {posts}
+          
 
         </ScrollView>
       </View>
@@ -96,3 +108,10 @@ const styles = StyleSheet.create({
     marginTop: 15
   }
 });
+
+const mapStateToProps = state => ({
+  posts: state.posts.posts,
+  newPost: state.posts.post
+});
+
+export default connect(mapStateToProps, { fetchPost })(NewsFeed);

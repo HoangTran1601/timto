@@ -22,7 +22,7 @@ export default class PostHeader extends Component {
             source={require('../../assets/post/IconLocation.png')}
             style={styles.iconLocation}
           />
-          <Text style={styles.locationText}> {locationName} </Text>
+          <Text style={styles.locationText}>{locationName}</Text>
         </View>
         <View style={styles.reactionArea}>
           <Text style={styles.reactionText}>{seenAmount} lượt xem, </Text>

@@ -22,6 +22,7 @@ export default class PostItem extends Component {
   }
 
   render() {
+    const { headerTitle, content, locationName, seenAmount, commentAmount } = this.props
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this.props.onPress}>
@@ -32,16 +33,16 @@ export default class PostItem extends Component {
               />
             </View>
             <PostHeader
-              headerTitle="SUA CHUA MAY TINH"
-              locationName="San jose"
-              seenAmount={1}
-              commentAmount={4}
+              headerTitle={headerTitle}
+              locationName={locationName}
+              seenAmount={seenAmount}
+              commentAmount={commentAmount}
               date="17/10/17"
             />
           </View>
           <View style={styles.postContent}>
             <PostContent
-              content="Nhan sua chua va lap rap tat ca cac loai may tinh. Cai dat tat ca cac loai phan mem, phan…"
+              content={content}
             />
           </View>
         </TouchableOpacity>
