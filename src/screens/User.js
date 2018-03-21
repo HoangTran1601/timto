@@ -7,23 +7,48 @@ import {
   ScrollView,
   TouchableOpacity
 } from 'react-native';
+import { connect } from 'react-redux';
 
 import Font from '../common/Font'
 import Color from '../common/Color'
 import Scale from '../common/Scale'
 import PostItem from '../components/Post/PostItem'
 
-export default class User extends Component {
-  _onPress () {
+class User extends Component {
+  _onPress (post) {
     this.props.navigation.navigate('Post_Detail', {
-      header: 'Vong deo tay cho quy chi e.',
-      owner: 'hoangnguyenvu',
-      description: `Vong deo tay cho quy chi e. Nhieu mau ma, dep, bat mat. Dac biet, mot so kieu duoc design theo tinh chat phong thuy, rat phu hop cho nhung ban co tin nguong. Gia 10 usd/cai (Van chuyen: 10 usd/cai trong khu vuc San Jose. Ky 4087504815.Vui long nhan tin, neu ban muon coi mau vi web co the ko coi duoc hinh`
+      header: post.title,
+      owner: post.author.username,
+      ownerImage: 'https://i.ytimg.com/vi/2KpsrQGOMmI/maxresdefault.jpg',
+      description: `Vong deo tay cho quy chi e. Nhieu mau ma, dep, bat mat. Dac biet, mot so kieu duoc design theo tinh chat phong thuy, rat phu hop cho nhung ban co tin nguong. Gia 10 usd/cai (Van chuyen: 10 usd/cai trong khu vuc San Jose. Ky 4087504815.Vui long nhan tin, neu ban muon coi mau vi web co the ko coi duoc hinh`,
+      locationName: post.location.address,
+      seenAmount: post.views,
+      commentAmount: post.comment_count,
+      createdAt: post.created_at.split('T')[0]
     })
   }
   render() {
+    const posts = this.props.posts.map(post => {
+      console.log('hi')
+      return (
+        <View key={post.id} style={styles.postItem}>
+          <PostItem 
+            headerTitle={post.title}
+            locationName={post.location.address}
+            seenAmount={post.views}
+            commentAmount={post.comment_count}
+            content={post.content}
+            onPress={this._onPress.bind(this, post)}  
+          />
+        </View>
+    )}
+  )
     return (
       <View style={styles.container}>
+      <ScrollView 
+          style={styles.postList}
+          showsVerticalScrollIndicator={false}  
+        >
         <TouchableOpacity>
           <Image 
             source={require('../assets/user/settings.png')}
@@ -51,22 +76,8 @@ export default class User extends Component {
             style={styles.edit}
           />
         </View>
-        <ScrollView 
-          style={styles.postList}
-          showsVerticalScrollIndicator={false}  
-        >
-          <View>
-            <PostItem onPress={this._onPress.bind(this)}/>
-          </View>
-          <View style={styles.postItem}>
-            <PostItem onPress={this._onPress.bind(this)}/>
-          </View>
-          <View style={styles.postItem}>
-            <PostItem onPress={this._onPress.bind(this)}/>
-          </View>
-          <View style={styles.postItem}>
-            <PostItem onPress={this._onPress.bind(this)}/>
-          </View>
+        
+          {posts}
         </ScrollView>
       </View>
     );
@@ -79,7 +90,8 @@ const styles = StyleSheet.create({
     flex: 1
   },
   infoContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginBottom: Scale.heightScale * 30
   },
   userAvatarArea: {
     width: Scale.widthScale * 101,
@@ -119,7 +131,7 @@ const styles = StyleSheet.create({
     marginTop: Scale.heightScale * 85,
   },
   postList: {
-    marginTop: Scale.heightScale * 30
+    // marginTop: Scale.heightScale * 30
   },
   setting: {
     position: 'absolute',
@@ -132,3 +144,10 @@ const styles = StyleSheet.create({
     marginTop: 15
   }
 });
+
+
+const mapStateToProps = state => ({
+  posts: state.posts.posts
+});
+
+export default connect(mapStateToProps, {  })(User);

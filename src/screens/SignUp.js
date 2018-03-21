@@ -11,10 +11,13 @@ import Scale from '../common/Scale'
 import Color from '../common/Color'
 import Font from '../common/Font'
 export default class SignUp extends Component {
+  _onGoBack () {
+    this.props.navigation.goBack()
+  }
   render() {
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={this._onGoBack.bind(this)}>
           <Image 
             source={require('../assets/IconClose.png')}
             style={styles.iconClose}
@@ -53,7 +56,8 @@ export default class SignUp extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: Color.white
   },
   logo: {
     width: Scale.widthScale * 200,

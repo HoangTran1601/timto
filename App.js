@@ -10,7 +10,9 @@ import {
 } from 'react-native';
 import { Provider } from 'react-redux';
 import store from './src/store';
-import Tabbar from './src/router'
+import RootNavigation from './src/router'
+import Home from './src/screens/Home'
+
 export default class App extends Component<Props> {
   constructor(props) {
     super(props)
@@ -24,7 +26,7 @@ export default class App extends Component<Props> {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <Tabbar/>
+          <RootNavigation />
         </View>
       </Provider>
       //https://i.ytimg.com/vi/2KpsrQGOMmI/maxresdefault.jpg

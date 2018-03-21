@@ -7,17 +7,56 @@ import {
   TextInput,
   TouchableWithoutFeedback
 } from 'react-native';
+import { NavigationActions } from 'react-navigation';
+
+import { connect } from 'react-redux';
+import { login } from '../actions/userLogin'
+
 import Scale from '../common/Scale'
 import Color from '../common/Color'
 import Font from '../common/Font'
-export default class SignIn extends Component {
+
+class SignIn extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      phone: '',
+      password: ''
+    }
+  }
+
+  componentWillMount () {
+    console.log(this.props.navigation.state)
+  }
+
+  _onPress () {
+    this.props.navigation.navigate('SignUp')
+  }
+
+  _onGoBack () {
+    this.props.navigation.goBack()
+  }
+
+  signIn () {
+    const userInfo = this.state
+    this.props.login(userInfo)
+  }
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.loginSuccess) this.props.navigation.dispatch(NavigationActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Home' })],
+    }))
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Image 
-          source={require('../assets/IconClose.png')}
-          style={styles.iconClose}
-        />
+        <TouchableWithoutFeedback onPress={this._onGoBack.bind(this)}>
+          <Image 
+            source={require('../assets/IconClose.png')}
+            style={styles.iconClose}
+          />
+        </TouchableWithoutFeedback>
         <Image 
           source={require('../assets/logo.png')}
           style={styles.logo}
@@ -34,16 +73,18 @@ export default class SignIn extends Component {
             placeholder="Your phone number"
             autoFocus={true}
             placeholderTextColor={Color.darkGray}
+            onChangeText={(phone) => this.setState({phone})}
           />
           <TextInput
             style={[styles.input, styles.inputPassword]}
             placeholder="Password"
             secureTextEntry={true}
             placeholderTextColor={Color.darkGray}
+            onChangeText={(password) => this.setState({password})}
           />
         </View>
 
-        <TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={this.signIn.bind(this)}>
           <View style={styles.buttonArea}>
             <View style={[styles.buttonContent, styles.buttonLogin]}>
               <Text style={styles.buttonText}>Log in</Text>
@@ -53,7 +94,7 @@ export default class SignIn extends Component {
 
         <Text style={styles.forgotPassword}>Forgot your password?</Text>
 
-        <TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={this._onPress.bind(this)}>
           <View style={[styles.buttonArea, styles.buttonSignUpArea]}>
             <View style={[styles.buttonContent, styles.buttonSignUp]}>
               <Text style={styles.buttonTextSignUp}>Sign up</Text>
@@ -67,7 +108,8 @@ export default class SignIn extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: Color.white
   },
   logo: {
     width: Scale.widthScale * 200,
@@ -144,3 +186,10 @@ const styles = StyleSheet.create({
     width: Scale.widthScale * 17
   }
 });
+
+
+const mapStateToProps = state => ({
+  loginSuccess: state.user.loginSuccess
+});
+
+export default connect(mapStateToProps, { login })(SignIn);

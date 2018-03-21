@@ -27,7 +27,7 @@ class NewsFeed extends Component {
   };
 
   componentWillMount () {
-    this.props.fetchPost()
+    this.props.fetchPost(this.props.token)
   }
 
   _onPress (post) {
@@ -47,7 +47,7 @@ class NewsFeed extends Component {
     const posts = this.props.posts.map(post => {
       console.log('hi')
       return (
-        <View key={post.id}>
+        <View key={post.id} style={styles.postItem}>
           <PostItem 
             headerTitle={post.title}
             locationName={post.location.address}
@@ -102,7 +102,6 @@ const styles = StyleSheet.create({
   },
   postList: {
     backgroundColor: Color.searchBar,
-    paddingTop: 15
   },
   postItem: {
     marginTop: 15
@@ -111,7 +110,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
   posts: state.posts.posts,
-  newPost: state.posts.post
+  newPost: state.posts.post,
+  token : state.user.userInfo.token
 });
 
 export default connect(mapStateToProps, { fetchPost })(NewsFeed);

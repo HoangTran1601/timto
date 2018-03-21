@@ -11,6 +11,10 @@ import NewsFeed from '../screens/NewsFeed'
 import Notification from '../screens/Notification'
 import PostDetail from '../screens/PostDetail'
 import User from '../screens/User'
+import SignIn from '../screens/SignIn'
+import SignUp from '../screens/SignUp'
+import Home from '../screens/Home'
+import PostNews from '../screens/PostNews'
 
 import Color from '../common/Color'
 import Font from '../common/Font'
@@ -27,6 +31,19 @@ const tabBar = TabNavigator({
         </Text>
       )
     }
+  },
+  PostNews_Screen: {
+    screen: PostNews,
+    navigationOptions: ({ navigation }) => ({
+      tabBarOnPress: (scene, jumpToIndex) => {
+        navigation.navigate('PostNews')
+      },
+      tabBarLabel: ({focused}) => (
+        <Text style={{color: focused ? Color.blue : Color.darkGray, fontSize: 10}}>
+          Đăng tin
+        </Text>
+      )
+    })
   },
   Notification_Screen: {
     screen: Notification,
@@ -65,6 +82,10 @@ const tabBar = TabNavigator({
         iconName = focused ? require('../assets/tabbar/notification.png') : require('../assets/tabbar/notification.png')
         width = 20
         height = 24
+      } else if (routeName === 'PostNews_Screen') {
+        iconName = require('../assets/tabbar/Icon.png')
+        width = 20
+        height = 20
       } else if (routeName === 'User_Screen') {
         iconName = focused ? require('../assets/tabbar/user-fill.png') : require('../assets/tabbar/user.png')
         width = 20
@@ -87,12 +108,30 @@ const tabBar = TabNavigator({
   tabBarComponent: TabBarBottom,
   tabBarPosition: 'bottom',
   animationEnabled: false,
-  swipeEnabled: true,
+  swipeEnabled: false,
   showLabel: false
 });
 
 
 export default App = StackNavigator({
+  Credential: {
+    screen: Home,
+    navigationOptions: {
+      header: null
+    }
+  },
+  SignIn: {
+    screen: SignIn,
+    navigationOptions: {
+      header: null
+    }
+  },
+  SignUp: {
+    screen: SignUp,
+    navigationOptions: {
+      header: null
+    }
+  },
   Home: {
     screen: tabBar
   },
@@ -114,6 +153,28 @@ export default App = StackNavigator({
           <Image 
             source={require('../assets/backIcon.png')}
             style={{width: Scale.widthScale * 20, height: Scale.heightScale * 17, marginLeft: 20}}
+          /> 
+        </TouchableOpacity> ),
+    })
+  },
+  PostNews: {
+    screen: PostNews,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Đăng tin',
+      headerStyle: {
+        backgroundColor: '#fff',
+        borderBottomWidth: 0
+      },
+      headerTitleStyle: {
+        fontSize: Font.normalize(16),
+        color: Color.black,
+        fontWeight: '500',
+      },
+      headerLeft: (
+        <TouchableOpacity onPress={ () => { navigation.goBack(null) } }  >
+          <Image 
+            source={require('../assets/IconClose.png')}
+            style={{width: Scale.widthScale * 17, height: Scale.heightScale * 17, marginLeft: Scale.widthScale * 20}}
           /> 
         </TouchableOpacity> ),
     })

@@ -14,6 +14,12 @@ import Color from '../common/Color'
 import DEVICE_SCALE from '../common/Scale'
 
 export default class Home extends Component {
+  _onLogin () {
+    this.props.navigation.navigate('SignIn')
+  }
+  _onSignup () {
+    this.props.navigation.navigate('SignUp')
+  }
   render() {
     return (
         <View style={styles.wrapper}>
@@ -21,21 +27,21 @@ export default class Home extends Component {
             autoplay={true}
             loop={true}
           >
-            <View style={styles.slide1}>
+            <View style={styles.slide}>
               <HomeApp 
                 image="home-slider-1.png"
                 header="Discover interesting things"
                 content="Let us  help you to find exciting things you will love, no matter where you go."
               />
             </View>
-            <View style={styles.slide2}>
+            <View style={styles.slide}>
               <HomeApp 
                 image="home-slider-2.png"
                 header="Connect People"
                 content="Our mission is to connect people with the places in which they spend their time."
               />
             </View>
-            <View style={styles.slide3}>
+            <View style={styles.slide}>
               <HomeApp 
                 image="home-slider-3.png"
                 header="Ready to explore?"
@@ -44,12 +50,13 @@ export default class Home extends Component {
             </View>
           </Swiper>
           <View style={styles.credential}>
-            <TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={this._onSignup.bind(this)}>
               <View style={[styles.btn, styles.btnSignUp]}>
                 <Text style={[styles.text, styles.txtSignUp]}>Sign up</Text>
               </View>
             </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback>
+
+            <TouchableWithoutFeedback onPress={this._onLogin.bind(this)}>
               <View style={[styles.btn, styles.btnLogIn]}>
                 <Text style={[styles.text, styles.txtLogin]}>Log in</Text>
               </View>
@@ -69,7 +76,8 @@ export default class Home extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1
+    flex: 1,
+    backgroundColor: Color.white,
   },
   credential: {
     paddingHorizontal: DEVICE_SCALE.widthScale * 18.5,
