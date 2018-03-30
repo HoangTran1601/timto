@@ -5,6 +5,7 @@ import {
   Text,
   Image,
   TextInput,
+  ActivityIndicator,
   TouchableWithoutFeedback
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
@@ -22,7 +23,8 @@ class SignIn extends Component {
   
     this.state = {
       phone: '',
-      password: ''
+      password: '',
+      isLoading: false
     }
   }
 
@@ -40,6 +42,7 @@ class SignIn extends Component {
 
   signIn () {
     const userInfo = this.state
+    this.setState({isLoading: true})
     this.props.login(userInfo)
   }
   componentWillReceiveProps (nextProps) {
@@ -49,6 +52,7 @@ class SignIn extends Component {
     }))
   }
   render() {
+    const btnLoginContent = this.state.isLoading ? <ActivityIndicator size="small" color={Color.white} /> : <Text style={styles.buttonText}>Log in</Text>
     return (
       <View style={styles.container}>
         <TouchableWithoutFeedback onPress={this._onGoBack.bind(this)}>
@@ -87,7 +91,7 @@ class SignIn extends Component {
         <TouchableWithoutFeedback onPress={this.signIn.bind(this)}>
           <View style={styles.buttonArea}>
             <View style={[styles.buttonContent, styles.buttonLogin]}>
-              <Text style={styles.buttonText}>Log in</Text>
+              {btnLoginContent}
             </View>
           </View>
         </TouchableWithoutFeedback>

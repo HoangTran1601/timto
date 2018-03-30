@@ -5,31 +5,35 @@ import {
   Text,
   ScrollView
 } from 'react-native';
+import { connect } from 'react-redux'
+import { fetchPostByCategory } from '../../actions/PostListAction'
+
 import CategoryItem from './CategoryItem'
 import Scale from '../../common/Scale'
-export default class Category extends Component {
+class Category extends Component {
   constructor(props) {
     super(props)
   
     this.state = {
        categoryItem: {
-         'Dịch vụ': false,
+         'Dịch vụ': true,
          'Rao vặt': false,
-         'Việc làm': true,
+         'Việc làm': false,
          'Cộnng đồng': false,
          'Tin tức': false,
        }
     };
   };
 
-  onPress (content) {
+  onPress (index) {
     this.setState({categoryItem: {
-      'Dịch vụ': content === 'Dịch vụ' ? true : false,
-      'Rao vặt': content === 'Rao vặt' ? true : false,
-      'Việc làm': content === 'Việc làm' ? true : false,
-      'Cộng đồng': content === 'Cộng đồng' ? true : false,
-      'Tin tức': content === 'Tin tức' ? true : false,
+      'Dịch vụ': index === 0 ? true : false,
+      'Rao vặt': index === 1 ? true : false,
+      'Việc làm': index === 2 ? true : false,
+      'Cộng đồng': index === 3 ? true : false,
+      'Tin tức': index === 4 ? true : false,
     }})
+    this.props.fetchPostByCategory(this.props.token, index, 1)
   }
   render() {
     const {categoryItem} = this.state
@@ -62,3 +66,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   }
 });
+
+const mapStateToProps = state => ({
+  posts: state.posts.posts,
+  newPost: state.posts.post,
+  token : state.user.userInfo.token
+});
+
+export default connect(mapStateToProps, { fetchPostByCategory })(Category);

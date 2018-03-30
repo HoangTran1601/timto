@@ -10,13 +10,13 @@ import Color from '../../common/Color'
 import Scale from '../../common/Scale'
 
 export default class CategoryItem extends Component {
-  _onPress (content) {
-    this.props.onPress(content)
+  _onPress (index) {
+    this.props.onPress(index)
   }
   render() {
     const {content, index, isClick} = this.props
     return (
-      <TouchableWithoutFeedback onPress={this._onPress.bind(this, content)}>
+      <TouchableWithoutFeedback onPress={this._onPress.bind(this, index)}>
         <View style={[styles.categoryItem, index !== 0 ? styles.spacing : '', isClick ? styles.changeBg : '']}>
           <Text style={[styles.categoryItemText, isClick ? styles.changeTextColor : '']}> {content} </Text>
         </View>

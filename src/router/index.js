@@ -5,7 +5,7 @@ import {
   TabBarBottom
 } from 'react-navigation';
 
-import { Image, Text, TouchableOpacity} from 'react-native'
+import { Image, Text, TouchableOpacity, AsyncStorage} from 'react-native'
 
 import NewsFeed from '../screens/NewsFeed'
 import Notification from '../screens/Notification'
@@ -181,6 +181,7 @@ export default App = StackNavigator({
   }
 },
 {
+  initialRouteName: 'Credential',
   navigationOptions: {
     // headerTintColor: '#000',
     // headerStyle: {
